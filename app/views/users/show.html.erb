@@ -1,4 +1,8 @@
-<%= render 'books/userinfo',user: @user %>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<%= render 'books/userinfo',user: @user,book: Book.new %>
 
 <div>
 <h1>Books</h1>

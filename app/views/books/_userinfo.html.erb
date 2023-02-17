@@ -2,10 +2,14 @@
 <%= image_tag user.get_profile_image(100,100) %>
 <p>name:<%= user.name %></p>
 <p>introduction:<%= user.introduction %></p>
-
+<% if user == current_user %>
+  <p><%= link_to "編集マーク", edit_user_path(user) %></p>
+ <% else %>
+  <p><%= link_to "編集マーク", new_user_session_path %></p>
+<% end %>
 
 <h1>New book</h1>
-  <%= form_with model: @book do |f| %>
+  <%= form_with model: book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
